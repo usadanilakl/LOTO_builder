@@ -3,9 +3,11 @@ package com.loto_builder.executor;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 public class ExecuteLotoBuilder {
     public static void main(String[] args) {
+        List<String> points = BrowserWindow.getPoints();
         // Create a new JFrame
         JFrame frame = new JFrame("Simple UI");
 
@@ -28,6 +30,14 @@ public class ExecuteLotoBuilder {
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        //DesctopOperations.fillOutData2(points);
+
+
+                    }
+                });
 
             }
         });

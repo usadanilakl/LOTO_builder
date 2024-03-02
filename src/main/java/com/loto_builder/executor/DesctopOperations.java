@@ -74,6 +74,7 @@ public class DesctopOperations {
             app.open();
 
             Region appWindow = app.window();
+            appWindow.setAutoWaitTimeout(10);
             for (int i = 0; i < 200; i++) {
                 Region reg = new Region(appWindow.x, appWindow.y, 100, 40);
 //            reg.mouseMove();
@@ -82,31 +83,20 @@ public class DesctopOperations {
                 }
             }
 
-            Pattern usernameInput = new Pattern();
-            Pattern passwordInput = new Pattern();
-            Pattern newLoto = new Pattern();
-            Pattern lotoWithoutStandard = new Pattern();
-            Pattern newIsolation = new Pattern();
-            Pattern searchInput = new Pattern();
-            Pattern searchButton = new Pattern();
+            Pattern usernameInput = new Pattern("C:\\Users\\usada\\IdeaProjects\\LOTO_builder\\img.png");
+            Pattern passwordInput = new Pattern("C:\\Users\\usada\\IdeaProjects\\LOTO_builder\\img_1.png");
+            Pattern newLoto = new Pattern("C:\\Users\\usada\\IdeaProjects\\LOTO_builder\\img_2.png");
+            Pattern text = new Pattern("C:\\Users\\usada\\IdeaProjects\\LOTO_builder\\img_3.png");
 
 
             appWindow.find(usernameInput).click();
-            screen.type(username);
+            Thread.sleep(300);
             appWindow.find(passwordInput).click();
-            screen.type(password+"\n");
-            Thread.sleep(3000);
-            screen.type("\n");
-
             appWindow.find(newLoto).click();
-            appWindow.find(lotoWithoutStandard).click();
+            appWindow.find(text).offset(30,15).click();
 
             for (String s : list) {
-                appWindow.find(newIsolation).click();
-                appWindow.find(searchInput).click();
-                screen.type(s);
-                appWindow.find(searchButton).click();
-                appWindow.findText(s).doubleClick();
+                screen.type(s+"\n");
             }
         } catch (FindFailed e) {
             throw new RuntimeException(e);
