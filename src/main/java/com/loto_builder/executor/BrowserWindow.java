@@ -33,8 +33,8 @@ public class BrowserWindow {
         return result;
     }
 
-    public static void main(String[] args) {
-        getPoints();
-    }
+//    public static void main(String[] args) {
+//        getPoints();
+//    }
 
 }
